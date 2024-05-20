@@ -1,13 +1,15 @@
 import css from "./Options.module.css"
 
-export default function Options(){
+export default function Options({updateFeedback}){
+   
     return (
         <div className={css.buttons}>
-            <button className={css.btn}>Good</button>
-            <button className={css.btn}>Neutral</button>
-            <button className={css.btn}>Bad</button>
+            <button className={css.btn} onClick={() => updateFeedback(`good`)}>Good</button>
+            <button className={css.btn} onClick={() => updateFeedback(`neutral`)}>Neutral</button>
+            <button className={css.btn} onClick={() => updateFeedback(`bad`)}>Bad</button>
             
         </div>
 
     )
 }
+

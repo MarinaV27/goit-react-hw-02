@@ -1,7 +1,7 @@
 import Description from "../Description/Description.jsx"
 import Options from "../Options/Options.jsx"
 import Feedback from "../Feedback/Feedback.jsx"
-import css from "./App.module.css"
+//import css from "./App.module.css"
 import { useState } from "react"
 
 export default function App() {
@@ -19,16 +19,15 @@ export default function App() {
         setFeedback ({ 
             ...feedback,
             [feedbackType]: feedback[feedbackType] + 1,
-        }
-
-        )
-       
-       }
+        })
+       };
 
     return (
         <>
         <Description />
-        <Options />
+        <Options 
+         updateFeedback={updateFeedback}
+         />
         <Feedback />
 
         </>

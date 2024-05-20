@@ -1,6 +1,7 @@
 import Description from "../Description/Description.jsx"
 import Options from "../Options/Options.jsx"
 import Feedback from "../Feedback/Feedback.jsx"
+import Notification from "../Notification/Notification.jsx"
 //import css from "./App.module.css"
 import { useState } from "react"
 
@@ -15,22 +16,32 @@ export default function App() {
         return savedFeedback ? JSON.parse(savedFeedback) : startFeedbeck;
      });
 
+    const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+
     const updateFeedback = feedbackType => {
         setFeedback ({ 
             ...feedback,
             [feedbackType]: feedback[feedbackType] + 1,
         })
        };
+    
 
     return (
         <>
         <Description />
         <Options 
          updateFeedback={updateFeedback}
+         totalFeedback={totalFeedback}
          />
+         {totalFeedback > 0 ?(
         <Feedback 
          feedback={feedback}
+         totalFeedback={totalFeedback}
         />
+         ) : (
+        <Notification />
+         )
+    }
 
         </>
     )

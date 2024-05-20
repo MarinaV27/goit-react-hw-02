@@ -1,6 +1,6 @@
 import css from "./Options.module.css"
 
-export default function Options({ updateFeedback }){
+export default function Options({ updateFeedback, totalFeedback }){
    
     return (
         <div className={css.buttons}>

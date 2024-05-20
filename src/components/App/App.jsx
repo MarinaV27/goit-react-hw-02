@@ -28,7 +28,9 @@ export default function App() {
         <Options 
          updateFeedback={updateFeedback}
          />
-        <Feedback />
+        <Feedback 
+         feedback={feedback}
+        />
 
         </>
     )

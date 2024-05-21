@@ -11,7 +11,6 @@ export default function Options({ updateFeedback, totalFeedback, resetFeedback }
             <button className={css.btn} onClick={resetFeedback}>Reset</button>
             )}
         </div>
-
     )
 }
 

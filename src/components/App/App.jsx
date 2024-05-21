@@ -6,7 +6,7 @@ import Notification from "../Notification/Notification.jsx"
 import { useState } from "react"
 
 export default function App() {
-    const startFeedbeck = {
+    const startFeedbeck =  {
         good: 0,
         neutral: 0,
         bad: 0
@@ -17,6 +17,12 @@ export default function App() {
      });
 
     const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+    const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100)
+
+    const resetFeedback = () => { 
+        localStorage.removeItem("feedback");
+        setFeedback (startFeedbeck);
+    };
 
     const updateFeedback = feedbackType => {
         setFeedback ({ 
@@ -32,11 +38,14 @@ export default function App() {
         <Options 
          updateFeedback={updateFeedback}
          totalFeedback={totalFeedback}
+         positiveFeedback={positiveFeedback}
+         resetFeedback={resetFeedback}
          />
          {totalFeedback > 0 ?(
         <Feedback 
          feedback={feedback}
          totalFeedback={totalFeedback}
+         positiveFeedback={positiveFeedback}
         />
          ) : (
         <Notification />

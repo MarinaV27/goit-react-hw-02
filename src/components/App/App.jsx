@@ -6,7 +6,7 @@ import Notification from "../Notification/Notification.jsx"
 import { useState, useEffect } from "react"
 
 export default function App() {
-    const startFeedbeck = JSON.parse(localStorage.getItem("feedback")) || {
+    const startFeedbeck = {
         good: 0,
         neutral: 0,
         bad: 0

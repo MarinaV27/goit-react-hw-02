@@ -3,10 +3,10 @@ import Options from "../Options/Options.jsx"
 import Feedback from "../Feedback/Feedback.jsx"
 import Notification from "../Notification/Notification.jsx"
 //import css from "./App.module.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function App() {
-    const startFeedbeck =  {
+    const startFeedbeck = JSON.parse(localStorage.getItem("feedback")) || {
         good: 0,
         neutral: 0,
         bad: 0
@@ -30,7 +30,9 @@ export default function App() {
             [feedbackType]: feedback[feedbackType] + 1,
         })
        };
-    
+    useEffect(() => {
+        localStorage.setItem("feedbeck", JSON.stringify(feedback));
+    }, [feedback]);
 
     return (
         <>

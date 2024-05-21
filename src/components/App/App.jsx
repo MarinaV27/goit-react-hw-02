@@ -31,7 +31,7 @@ export default function App() {
         })
        };
     useEffect(() => {
-        localStorage.setItem("feedbeck", JSON.stringify(feedback));
+        localStorage.setItem("feedback", JSON.stringify(feedback));
     }, [feedback]);
 
     return (
